@@ -1,0 +1,133 @@
+﻿@page "/add-player"
+@layout MainLayout
+@inherits SoccerLeagueTransferApp.Pages.AddPlayerComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using SoccerLeagueTransferApp.Models.ConData
+<RadzenContent Container="main">
+  <ChildContent>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenTemplateForm Data="@player" TItem="SoccerLeagueTransferApp.Models.ConData.Player" Visible="@(player != null)" Submit="@Form0Submit">
+          <ChildContent>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="FirstName" style="width: 100%" Text="First Name">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="50" style="display: block; width: 100%" @bind-Value="@(player.FirstName)" Name="FirstName">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="FirstName" style="position: absolute" Text="First Name is required">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="MiddleName" style="width: 100%" Text="Middle Name">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="50" style="width: 100%" @bind-Value="@(player.MiddleName)" Name="MiddleName">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="Surname" style="width: 100%" Text="Surname">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="50" style="display: block; width: 100%" @bind-Value="@(player.Surname)" Name="Surname">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="Surname" style="position: absolute" Text="Surname is required">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="GenderID" style="width: 100%" Text="Gender">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDown Data="@getGendersResult" Placeholder="Choose Gender" style="display: block; width: 100%" TextProperty="GenderName" @bind-Value="@(player.GenderID)" ValueProperty="GenderID" Name="GenderID">
+                </RadzenDropDown>
+                <RadzenRequiredValidator Component="GenderID" DefaultValue="0" style="position: absolute" Text="Gender is required">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="CurrentClubID" style="width: 100%" Text="Club">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDown Data="@getClubDetailsResult" Placeholder="Choose Club" style="width: 100%" TextProperty="TeamName" @bind-Value="@(player.CurrentClubID)" ValueProperty="TeamID" Name="CurrentClubID">
+                </RadzenDropDown>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="PlayerPhoto" style="width: 100%" Text="Player Photo">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenFileInput ChooseText="Upload Player Photo" @bind-Value="@(player.PlayerPhoto)" Name="PlayerPhoto">
+                </RadzenFileInput>
+                <RadzenRequiredValidator Component="PlayerPhoto" Text="Player Photo Is Required!">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="ContactEmail" style="width: 100%" Text="Contact Email">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="50" style="display: block; width: 100%" @bind-Value="@(player.ContactEmail)" Name="ContactEmail">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="ContactEmail" style="position: absolute" Text="Contact Email is required">
+                </RadzenRequiredValidator>
+                <RadzenEmailValidator Component="ContactEmail" Text="Please Enter Valid Email">
+                </RadzenEmailValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="ContactPhone" style="width: 100%" Text="Contact Phone">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="50" style="display: block; width: 100%" @bind-Value="@(player.ContactPhone)" Name="ContactPhone">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="ContactPhone" style="position: absolute" Text="Contact Phone is required">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="PositionID" style="width: 100%" Text="Player Position">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDown Data="@getPlayerPositionsResult" Placeholder="Choose Player Position" style="display: block; width: 100%" TextProperty="PositionName" @bind-Value="@(player.PositionID)" ValueProperty="PositionID" Name="PositionID">
+                </RadzenDropDown>
+                <RadzenRequiredValidator Component="PositionID" DefaultValue="0" style="position: absolute" Text="Position is required">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col offset-sm-3">
+                <RadzenButton ButtonStyle="ButtonStyle.Primary" ButtonType="ButtonType.Submit" Icon="save" Text="Save">
+                </RadzenButton>
+                <RadzenButton ButtonStyle="ButtonStyle.Light" Text="Cancel" Click="@Button2Click">
+                </RadzenButton>
+              </div>
+            </div>
+          </ChildContent>
+        </RadzenTemplateForm>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

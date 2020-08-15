@@ -1,0 +1,312 @@
+{
+  "access": [],
+  "components": [
+    {
+      "components": [
+        {
+          "components": [
+            {
+              "class": "col-md-12",
+              "components": [
+                {
+                  "components": [
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "name": "heading0",
+                              "size": "H1",
+                              "text": "Club Detail",
+                              "type": "heading"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "name": "heading1",
+                              "size": "H3",
+                              "style": {
+                                "width": "354px"
+                              },
+                              "text": "Confirm If You Want To Delete This Club?",
+                              "type": "heading"
+                            }
+                          ],
+                          "name": "col2",
+                          "type": "col"
+                        }
+                      ],
+                      "name": "row1",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "TeamName",
+                              "name": "label5",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Team Name",
+                              "type": "label"
+                            }
+                          ],
+                          "name": "col0",
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "name": "label6",
+                              "text": "${clubdetail.TeamName}",
+                              "type": "label"
+                            }
+                          ],
+                          "name": "col1",
+                          "type": "col"
+                        }
+                      ],
+                      "name": "row0",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "HomeGround",
+                              "name": "HomeGroundLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Home Ground",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "name": "label1",
+                              "text": "${clubdetail.HomeGround}",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "RegisteredOfficeAddress",
+                              "name": "RegisteredOfficeAddressLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Registered Office Address",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "name": "label2",
+                              "text": "${clubdetail.RegisteredOfficeAddress}",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "ContactEmail",
+                              "name": "ContactEmailLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Contact Email",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "name": "label3",
+                              "text": "${clubdetail.ContactEmail}",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "ContactTelephone",
+                              "name": "ContactTelephoneLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Contact Telephone",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "name": "label4",
+                              "text": "${clubdetail.ContactTelephone}",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col offset-sm-3",
+                          "components": [
+                            {
+                              "buttonStyle": "primary",
+                              "buttonType": "submit",
+                              "icon": "close",
+                              "text": "Delete Club",
+                              "type": "button"
+                            },
+                            {
+                              "buttonStyle": "light",
+                              "events": {
+                                "click": [
+                                  {
+                                    "type": "close-popup"
+                                  }
+                                ]
+                              },
+                              "text": "Cancel",
+                              "type": "button"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "type": "row"
+                    }
+                  ],
+                  "data": "${clubdetail}",
+                  "events": {
+                    "submit": [
+                      {
+                        "code": "await MuyikDeleteClub();",
+                        "type": "execute"
+                      }
+                    ]
+                  },
+                  "itemType": "SoccerLeagueTransferApp.Models.ConData.ClubDetail",
+                  "name": "form0",
+                  "type": "template-form",
+                  "visible": "${clubdetail != null}"
+                }
+              ],
+              "type": "col"
+            }
+          ],
+          "type": "row"
+        }
+      ],
+      "container": "main",
+      "type": "content"
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "error": [],
+        "name": "conData.getClubDetailByTeamID",
+        "parameters": [
+          {
+            "name": "TeamID",
+            "value": "${parameters.TeamID}"
+          }
+        ],
+        "then": [
+          {
+            "name": "clubdetail",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "SoccerLeagueTransferApp.Models.ConData.ClubDetail"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "layout": "Main",
+  "name": "ConfirmDeleteClubDetail"
+}

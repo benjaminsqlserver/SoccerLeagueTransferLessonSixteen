@@ -1,0 +1,180 @@
+{
+  "access": [],
+  "components": [
+    {
+      "components": [
+        {
+          "components": [
+            {
+              "class": "col-md-12",
+              "components": [
+                {
+                  "components": [
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "name": "heading0",
+                              "size": "H1",
+                              "text": "Gender",
+                              "type": "heading"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "name": "heading1",
+                              "size": "H3",
+                              "style": {
+                                "width": "418px"
+                              },
+                              "text": "Confirm If You Want To Delete This Gender Record",
+                              "type": "heading"
+                            }
+                          ],
+                          "name": "col2",
+                          "type": "col"
+                        }
+                      ],
+                      "name": "row1",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "GenderName",
+                              "name": "label1",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Gender Name",
+                              "type": "label"
+                            }
+                          ],
+                          "name": "col0",
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "name": "label2",
+                              "text": "${gender.GenderName}",
+                              "type": "label"
+                            }
+                          ],
+                          "name": "col1",
+                          "type": "col"
+                        }
+                      ],
+                      "name": "row0",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col offset-sm-3",
+                          "components": [
+                            {
+                              "buttonStyle": "primary",
+                              "buttonType": "submit",
+                              "icon": "close",
+                              "text": "Delete Gender",
+                              "type": "button"
+                            },
+                            {
+                              "buttonStyle": "light",
+                              "events": {
+                                "click": [
+                                  {
+                                    "type": "close-popup"
+                                  }
+                                ]
+                              },
+                              "text": "Cancel",
+                              "type": "button"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "type": "row"
+                    }
+                  ],
+                  "data": "${gender}",
+                  "events": {
+                    "submit": [
+                      {
+                        "code": "await MuyikDeleteGender();",
+                        "type": "execute"
+                      }
+                    ]
+                  },
+                  "itemType": "SoccerLeagueTransferApp.Models.ConData.Gender",
+                  "name": "form0",
+                  "type": "template-form",
+                  "visible": "${gender != null}"
+                }
+              ],
+              "type": "col"
+            }
+          ],
+          "type": "row"
+        }
+      ],
+      "container": "main",
+      "type": "content"
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "code": "await CheckUserStatus();",
+        "type": "execute"
+      },
+      {
+        "error": [],
+        "name": "conData.getGenderByGenderID",
+        "parameters": [
+          {
+            "name": "GenderID",
+            "value": "${parameters.GenderID}"
+          }
+        ],
+        "then": [
+          {
+            "name": "gender",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "SoccerLeagueTransferApp.Models.ConData.Gender"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "layout": "Main",
+  "name": "Confirm Delete Gender"
+}

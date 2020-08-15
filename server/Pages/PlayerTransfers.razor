@@ -1,0 +1,53 @@
+﻿@page "/player-transfers"
+@layout MainLayout
+@inherits SoccerLeagueTransferApp.Pages.PlayerTransfersComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using SoccerLeagueTransferApp.Models.ConData
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H1" Text="Player Transfers">
+    </RadzenHeading>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Add" Visible="@(canEdit==true)" Click="@Button0Click">
+        </RadzenButton>
+        <RadzenGrid @ref="grid0" AllowFiltering="true" AllowPaging="true" AllowSorting="true" Data="@getPlayerTransfersResult" TItem="SoccerLeagueTransferApp.Models.ConData.PlayerTransfer" RowSelect="@Grid0RowSelect">
+          <Columns>
+            <RadzenGridColumn TItem="SoccerLeagueTransferApp.Models.ConData.PlayerTransfer" FilterProperty="Player.FullName" Property="PlayerID" SortProperty="Player.FullName" Title="Player">
+              <Template Context="data">
+              @(data.Player?.FullName)
+              </Template>
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="SoccerLeagueTransferApp.Models.ConData.PlayerTransfer" FilterProperty="ClubDetail.TeamName" Property="OriginatingClubID" SortProperty="ClubDetail.TeamName" Title="Old Club">
+              <Template Context="data">
+              @(data.ClubDetail?.TeamName)
+              </Template>
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="SoccerLeagueTransferApp.Models.ConData.PlayerTransfer" FilterProperty="ClubDetail1.TeamName" Property="DestinationClubID" SortProperty="ClubDetail1.TeamName" Title="New Club">
+              <Template Context="data">
+              @(data.ClubDetail1?.TeamName)
+              </Template>
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="SoccerLeagueTransferApp.Models.ConData.PlayerTransfer" FormatString="{0:dd/MM/yyyy}" Property="TransferDate" Title="Transfer Date">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="SoccerLeagueTransferApp.Models.ConData.PlayerTransfer" FilterProperty="TransferType.TransferTypeName" Property="TransferTypeID" SortProperty="TransferType.TransferTypeName" Title="Transfer Type">
+              <Template Context="data">
+              @(data.TransferType?.TransferTypeName)
+              </Template>
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="SoccerLeagueTransferApp.Models.ConData.PlayerTransfer" Property="TransferFee" Title="Transfer Fee">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="SoccerLeagueTransferApp.Models.ConData.PlayerTransfer" Filterable="false" Sortable="false" TextAlign="TextAlign.Center" Width="70px">
+              <Template Context="soccerLeagueTransferAppModelsConDataPlayerTransfer">
+                <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Visible="@(canEdit==true)" Click="@((args) =>GridDeleteButtonClick(args, soccerLeagueTransferAppModelsConDataPlayerTransfer))" @onclick:stopPropagation="true">
+                </RadzenButton>
+              </Template>
+            </RadzenGridColumn>
+          </Columns>
+        </RadzenGrid>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

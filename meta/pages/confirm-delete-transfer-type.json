@@ -1,0 +1,170 @@
+{
+  "access": [],
+  "components": [
+    {
+      "components": [
+        {
+          "components": [
+            {
+              "class": "col-md-12",
+              "components": [
+                {
+                  "components": [
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "name": "heading0",
+                              "size": "H1",
+                              "style": {
+                                "width": "226px"
+                              },
+                              "text": "Transfer Type",
+                              "type": "heading"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "name": "heading1",
+                              "size": "H3",
+                              "style": {
+                                "width": "413px"
+                              },
+                              "text": "Confirm If You Want To Delete This Transfer Type",
+                              "type": "heading"
+                            }
+                          ],
+                          "name": "col2",
+                          "type": "col"
+                        }
+                      ],
+                      "name": "row1",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "TransferTypeName",
+                              "name": "label1",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Transfer Type Name",
+                              "type": "label"
+                            }
+                          ],
+                          "name": "col0",
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "name": "label2",
+                              "text": "${transfertype.TransferTypeName}",
+                              "type": "label"
+                            }
+                          ],
+                          "name": "col1",
+                          "type": "col"
+                        }
+                      ],
+                      "name": "row0",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col offset-sm-3",
+                          "components": [
+                            {
+                              "buttonStyle": "primary",
+                              "buttonType": "submit",
+                              "icon": "close",
+                              "text": "Delete Transfer Type",
+                              "type": "button"
+                            },
+                            {
+                              "buttonStyle": "light",
+                              "events": {
+                                "click": [
+                                  {
+                                    "type": "close-popup"
+                                  }
+                                ]
+                              },
+                              "text": "Cancel",
+                              "type": "button"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "type": "row"
+                    }
+                  ],
+                  "data": "${transfertype}",
+                  "events": {
+                    "submit": [
+                      {
+                        "code": "await MuyikDeleteTransferType();",
+                        "type": "execute"
+                      }
+                    ]
+                  },
+                  "itemType": "SoccerLeagueTransferApp.Models.ConData.TransferType",
+                  "name": "form0",
+                  "type": "template-form",
+                  "visible": "${transfertype != null}"
+                }
+              ],
+              "type": "col"
+            }
+          ],
+          "type": "row"
+        }
+      ],
+      "container": "main",
+      "type": "content"
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "transfertype",
+        "type": "set",
+        "value": "new SoccerLeagueTransferApp.Models.ConData.TransferType(){}",
+        "valueType": "SoccerLeagueTransferApp.Models.ConData.TransferType"
+      },
+      {
+        "code": "await CheckUserStatus();",
+        "type": "execute"
+      }
+    ]
+  },
+  "layout": "Main",
+  "name": "ConfirmDeleteTransferType"
+}

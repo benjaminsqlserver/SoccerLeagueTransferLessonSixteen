@@ -1,0 +1,569 @@
+{
+  "access": [],
+  "components": [
+    {
+      "components": [
+        {
+          "components": [
+            {
+              "class": "col-md-12",
+              "components": [
+                {
+                  "components": [
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "PlayerID",
+                              "name": "PlayerIDLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Player",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getPlayersResult}",
+                              "name": "PlayerID",
+                              "placeholder": "Choose Player",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "textProperty": "FullName",
+                              "type": "dropdown",
+                              "value": "${playertransfer.PlayerID}",
+                              "valueProperty": "PlayerID",
+                              "valueType": "int"
+                            },
+                            {
+                              "component": "PlayerID",
+                              "defaultValue": "0",
+                              "name": "PlayerIDRequiredValidator",
+                              "style": {
+                                "position": "absolute"
+                              },
+                              "text": "Player is required",
+                              "type": "required-validator"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "OriginatingClubID",
+                              "name": "OriginatingClubIDLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Originating Club",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${originatingClubList}",
+                              "name": "OriginatingClubID",
+                              "placeholder": "Choose Club",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "template": "",
+                              "textProperty": "TeamName",
+                              "type": "dropdown",
+                              "value": "${playertransfer.OriginatingClubID}",
+                              "valueProperty": "TeamID",
+                              "valueType": "int?"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "DestinationClubID",
+                              "name": "DestinationClubIDLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Destination Club",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getClubDetailsResult}",
+                              "name": "DestinationClubID",
+                              "placeholder": "Choose Club",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "textProperty": "TeamName",
+                              "type": "dropdown",
+                              "value": "${playertransfer.DestinationClubID}",
+                              "valueProperty": "TeamID",
+                              "valueType": "int"
+                            },
+                            {
+                              "component": "DestinationClubID",
+                              "defaultValue": "0",
+                              "name": "DestinationClubIDRequiredValidator",
+                              "style": {
+                                "position": "absolute"
+                              },
+                              "text": "Destination Club is required",
+                              "type": "required-validator"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "TransferDate",
+                              "name": "TransferDateLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Transfer Date",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "dateFormat": "dd/MM/yyyy",
+                              "events": {
+                                "change": [
+                                  {
+                                    "code": "await ValidateTransferDate();",
+                                    "type": "execute"
+                                  }
+                                ]
+                              },
+                              "name": "TransferDate",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "type": "datepicker",
+                              "value": "${playertransfer.TransferDate}",
+                              "valueType": "DateTime"
+                            },
+                            {
+                              "component": "TransferDate",
+                              "name": "TransferDateRequiredValidator",
+                              "style": {
+                                "position": "absolute"
+                              },
+                              "text": "Transfer Date is required",
+                              "type": "required-validator"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "TransferTypeID",
+                              "name": "TransferTypeIDLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Transfer Type",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getTransferTypesResult}",
+                              "name": "TransferTypeID",
+                              "placeholder": "Choose Transfer Type",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "textProperty": "TransferTypeName",
+                              "type": "dropdown",
+                              "value": "${playertransfer.TransferTypeID}",
+                              "valueProperty": "TransferTypeID",
+                              "valueType": "int"
+                            },
+                            {
+                              "component": "TransferTypeID",
+                              "defaultValue": "0",
+                              "name": "TransferTypeIDRequiredValidator",
+                              "style": {
+                                "position": "absolute"
+                              },
+                              "text": "Transfer Type is required",
+                              "type": "required-validator"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "TransferFee",
+                              "name": "TransferFeeLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Transfer Fee",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "name": "TransferFee",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "type": "numeric",
+                              "value": "${playertransfer.TransferFee}",
+                              "valueType": "decimal?"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "SignOnFee",
+                              "name": "SignOnFeeLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Sign On Fee",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "name": "SignOnFee",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "type": "numeric",
+                              "value": "${playertransfer.SignOnFee}",
+                              "valueType": "decimal"
+                            },
+                            {
+                              "component": "SignOnFee",
+                              "name": "SignOnFeeRequiredValidator",
+                              "style": {
+                                "position": "absolute"
+                              },
+                              "text": "Sign On Fee is required",
+                              "type": "required-validator"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "TransferAgent",
+                              "name": "TransferAgentLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Transfer Agent",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "maxLength": 200,
+                              "name": "TransferAgent",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "type": "textbox",
+                              "value": "${playertransfer.TransferAgent}",
+                              "valueType": "string"
+                            },
+                            {
+                              "component": "TransferAgent",
+                              "name": "TransferAgentRequiredValidator",
+                              "style": {
+                                "position": "absolute"
+                              },
+                              "text": "Transfer Agent is required",
+                              "type": "required-validator"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "AgentFee",
+                              "name": "AgentFeeLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Agent Fee",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "name": "AgentFee",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "type": "numeric",
+                              "value": "${playertransfer.AgentFee}",
+                              "valueType": "decimal"
+                            },
+                            {
+                              "component": "AgentFee",
+                              "name": "AgentFeeRequiredValidator",
+                              "style": {
+                                "position": "absolute"
+                              },
+                              "text": "Agent Fee is required",
+                              "type": "required-validator"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col offset-sm-3",
+                          "components": [
+                            {
+                              "buttonStyle": "primary",
+                              "buttonType": "submit",
+                              "icon": "save",
+                              "text": "Save",
+                              "type": "button"
+                            },
+                            {
+                              "buttonStyle": "light",
+                              "events": {
+                                "click": [
+                                  {
+                                    "type": "close-popup"
+                                  }
+                                ]
+                              },
+                              "text": "Cancel",
+                              "type": "button"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "type": "row"
+                    }
+                  ],
+                  "data": "${playertransfer}",
+                  "events": {
+                    "submit": [
+                      {
+                        "code": "await MuyikTransferPlayer();",
+                        "type": "execute"
+                      }
+                    ]
+                  },
+                  "itemType": "SoccerLeagueTransferApp.Models.ConData.PlayerTransfer",
+                  "name": "form0",
+                  "type": "template-form",
+                  "visible": "${playertransfer != null}"
+                }
+              ],
+              "type": "col"
+            }
+          ],
+          "type": "row"
+        }
+      ],
+      "container": "main",
+      "type": "content"
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "originatingClubList",
+        "type": "set",
+        "value": "new List<SoccerLeagueTransferApp.Models.ConData.ClubDetail>(){}",
+        "valueType": "List<SoccerLeagueTransferApp.Models.ConData.ClubDetail>"
+      },
+      {
+        "code": "await CheckUserStatus();",
+        "type": "execute"
+      },
+      {
+        "name": "getPlayersResult",
+        "type": "set",
+        "value": "new List<SoccerLeagueTransferApp.Models.ConData.Player>(){}",
+        "valueType": "IEnumerable<SoccerLeagueTransferApp.Models.ConData.Player>"
+      },
+      {
+        "name": "conData.getClubDetails",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getClubDetailsResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<SoccerLeagueTransferApp.Models.ConData.ClubDetail>"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "conData.getTransferTypes",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTransferTypesResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<SoccerLeagueTransferApp.Models.ConData.TransferType>"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "playertransfer",
+        "type": "set",
+        "value": "new SoccerLeagueTransferApp.Models.ConData.PlayerTransfer(){}",
+        "valueType": "SoccerLeagueTransferApp.Models.ConData.PlayerTransfer"
+      },
+      {
+        "code": "await MuyikGetPlayerList();",
+        "type": "execute"
+      }
+    ]
+  },
+  "layout": "Main",
+  "name": "Add Player Transfer"
+}

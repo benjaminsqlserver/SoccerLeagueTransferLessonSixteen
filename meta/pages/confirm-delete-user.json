@@ -1,0 +1,271 @@
+{
+  "components": [
+    {
+      "components": [
+        {
+          "components": [
+            {
+              "class": "col-md-12",
+              "components": [
+                {
+                  "components": [
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "name": "heading0",
+                              "size": "H1",
+                              "text": "User",
+                              "type": "heading"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "name": "heading1",
+                              "size": "H3",
+                              "style": {
+                                "width": "348px"
+                              },
+                              "text": "Please Confirm If You Want To Delete User",
+                              "type": "heading"
+                            }
+                          ],
+                          "name": "col4",
+                          "type": "col"
+                        }
+                      ],
+                      "name": "row2",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "Username",
+                              "name": "label4",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Username",
+                              "type": "label"
+                            }
+                          ],
+                          "name": "col2",
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "name": "label5",
+                              "text": "${user.Username}",
+                              "type": "label"
+                            }
+                          ],
+                          "name": "col3",
+                          "type": "col"
+                        }
+                      ],
+                      "name": "row1",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "TeamID",
+                              "name": "TeamIDLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Club ",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "name": "label2",
+                              "text": "${user.ClubDetail.TeamName}",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "TeamID",
+                              "name": "label1",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "User Role(s)",
+                              "type": "label"
+                            }
+                          ],
+                          "name": "col0",
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "name": "label3",
+                              "text": "${userRoleList}",
+                              "type": "label"
+                            }
+                          ],
+                          "name": "col1",
+                          "type": "col"
+                        }
+                      ],
+                      "name": "row0",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col offset-sm-3",
+                          "components": [
+                            {
+                              "buttonStyle": "primary",
+                              "buttonType": "submit",
+                              "events": {
+                                "click": []
+                              },
+                              "icon": "close",
+                              "text": "Delete",
+                              "type": "button"
+                            },
+                            {
+                              "buttonStyle": "light",
+                              "events": {
+                                "click": [
+                                  {
+                                    "code": "await MuyikCancel();",
+                                    "type": "execute"
+                                  }
+                                ]
+                              },
+                              "text": "Cancel",
+                              "type": "button"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "type": "row"
+                    }
+                  ],
+                  "data": "${user}",
+                  "events": {
+                    "submit": [
+                      {
+                        "code": "await MuyikDeleteUser();",
+                        "type": "execute"
+                      }
+                    ]
+                  },
+                  "itemType": "SoccerLeagueTransferApp.Models.ConData.User",
+                  "name": "form0",
+                  "type": "template-form",
+                  "visible": "${user != null}"
+                }
+              ],
+              "type": "col"
+            }
+          ],
+          "type": "row"
+        }
+      ],
+      "container": "main",
+      "type": "content"
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "code": "await CheckUserStatus();",
+        "type": "execute"
+      },
+      {
+        "error": [],
+        "name": "conData.getUserByUserID",
+        "parameters": [
+          {
+            "name": "UserID",
+            "value": "${parameters.UserID}"
+          }
+        ],
+        "then": [
+          {
+            "name": "user",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "SoccerLeagueTransferApp.Models.ConData.User"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "userRoleList",
+        "type": "set",
+        "value": "\"\"",
+        "valueType": "string"
+      },
+      {
+        "name": "userRoleNames",
+        "type": "set",
+        "value": "new List<string>(){}",
+        "valueType": "IEnumerable<string>"
+      },
+      {
+        "code": "await MuyikGetCurrentUserRoles();",
+        "type": "execute"
+      }
+    ]
+  },
+  "layout": "Main",
+  "name": "Confirm Delete User",
+  "access": []
+}

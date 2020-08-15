@@ -1,0 +1,262 @@
+{
+  "access": [],
+  "components": [
+    {
+      "components": [
+        {
+          "components": [
+            {
+              "class": "col-md-12",
+              "components": [
+                {
+                  "components": [
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "name": "heading0",
+                              "size": "H1",
+                              "style": {
+                                "textAlign": "center",
+                                "width": "397px"
+                              },
+                              "text": "Login",
+                              "type": "heading"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "Username",
+                              "name": "label1",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Username",
+                              "type": "label"
+                            }
+                          ],
+                          "name": "col2",
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "autoComplete": false,
+                              "maxLength": 50,
+                              "name": "Username",
+                              "placeholder": "",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "type": "textbox",
+                              "value": "${user.Username}",
+                              "valueType": "string"
+                            },
+                            {
+                              "component": "Username",
+                              "name": "requiredValidator0",
+                              "style": {
+                                "position": "absolute"
+                              },
+                              "text": "Username is required",
+                              "type": "required-validator"
+                            }
+                          ],
+                          "name": "col3",
+                          "type": "col"
+                        }
+                      ],
+                      "name": "row1",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "Password",
+                              "name": "label0",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Password",
+                              "type": "label"
+                            }
+                          ],
+                          "name": "col0",
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "autoComplete": false,
+                              "name": "Password",
+                              "placeholder": "",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "type": "password",
+                              "value": "${user.Password}"
+                            },
+                            {
+                              "component": "Password",
+                              "name": "requiredValidator1",
+                              "text": "Password Is Required",
+                              "type": "required-validator"
+                            }
+                          ],
+                          "name": "col1",
+                          "type": "col"
+                        }
+                      ],
+                      "name": "row0",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col offset-sm-3",
+                          "components": [
+                            {
+                              "buttonStyle": "primary",
+                              "buttonType": "submit",
+                              "icon": "",
+                              "name": "button0",
+                              "text": "Login",
+                              "type": "button"
+                            },
+                            {
+                              "buttonStyle": "light",
+                              "events": {
+                                "click": [
+                                  {
+                                    "code": "await ResetForm();",
+                                    "type": "execute"
+                                  }
+                                ]
+                              },
+                              "name": "button1",
+                              "text": "Cancel",
+                              "type": "button"
+                            }
+                          ],
+                          "name": "col4",
+                          "type": "col"
+                        }
+                      ],
+                      "name": "row2",
+                      "type": "row"
+                    }
+                  ],
+                  "data": "${user}",
+                  "events": {
+                    "submit": [
+                      {
+                        "code": "await SignInUser();",
+                        "type": "execute"
+                      }
+                    ]
+                  },
+                  "itemType": "SoccerLeagueTransferApp.Models.ConData.User",
+                  "name": "form0",
+                  "type": "template-form",
+                  "visible": "${user != null}"
+                }
+              ],
+              "type": "col"
+            }
+          ],
+          "type": "row"
+        },
+        {
+          "components": [
+            {
+              "class": "col offset-sm-3",
+              "components": [
+                {
+                  "component": null,
+                  "name": "label2",
+                  "style": {
+                    "textAlign": "center",
+                    "width": "100%"
+                  },
+                  "text": "Forgot Your Password?",
+                  "type": "label"
+                }
+              ],
+              "name": "col5",
+              "type": "col"
+            },
+            {
+              "class": "col offset-sm-3",
+              "components": [
+                {
+                  "buttonStyle": "primary",
+                  "buttonType": "submit",
+                  "events": {
+                    "click": [
+                      {
+                        "path": "reset-user-password",
+                        "title": "Reset Your Password",
+                        "type": "popup"
+                      }
+                    ]
+                  },
+                  "icon": "",
+                  "name": "button2",
+                  "style": {
+                    "width": "310.875px"
+                  },
+                  "text": "Reset Your Password",
+                  "type": "button"
+                }
+              ],
+              "name": "col6",
+              "type": "col"
+            }
+          ],
+          "name": "row3",
+          "type": "row"
+        }
+      ],
+      "container": "main",
+      "type": "content"
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "user",
+        "type": "set",
+        "value": "new SoccerLeagueTransferApp.Models.ConData.User(){}",
+        "valueType": "SoccerLeagueTransferApp.Models.ConData.User"
+      }
+    ]
+  },
+  "layout": "Login",
+  "name": "Login"
+}

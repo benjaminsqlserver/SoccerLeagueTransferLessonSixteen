@@ -1,0 +1,319 @@
+{
+  "access": [],
+  "components": [
+    {
+      "components": [
+        {
+          "components": [
+            {
+              "class": "col-md-12",
+              "components": [
+                {
+                  "components": [
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "name": "heading0",
+                              "size": "H1",
+                              "style": {
+                                "width": "254px"
+                              },
+                              "text": "Player Transfer",
+                              "type": "heading"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "name": "heading1",
+                              "size": "H3",
+                              "style": {
+                                "width": "489px"
+                              },
+                              "text": "Confirm If You Want To Delete This Player Transfer Record",
+                              "type": "heading"
+                            }
+                          ],
+                          "name": "col2",
+                          "type": "col"
+                        }
+                      ],
+                      "name": "row1",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "PlayerID",
+                              "name": "label5",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Player",
+                              "type": "label"
+                            }
+                          ],
+                          "name": "col0",
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "name": "label6",
+                              "text": "${playertransfer.Player.FullName}",
+                              "type": "label"
+                            }
+                          ],
+                          "name": "col1",
+                          "type": "col"
+                        }
+                      ],
+                      "name": "row0",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "OriginatingClubID",
+                              "name": "OriginatingClubIDLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Originating Club",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "name": "label1",
+                              "text": "${playertransfer.ClubDetail?.TeamName}",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "DestinationClubID",
+                              "name": "DestinationClubIDLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Destination Club",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "name": "label2",
+                              "text": "${playertransfer.ClubDetail1?.TeamName}",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "TransferDate",
+                              "name": "TransferDateLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Transfer Date",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "name": "label3",
+                              "text": "${playertransfer.TransferDate.ToString(\"dd MMMM yyyy\")}",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "TransferFee",
+                              "name": "TransferFeeLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Transfer Fee",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "name": "label4",
+                              "text": "${playertransfer.TransferFee}",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col offset-sm-3",
+                          "components": [
+                            {
+                              "buttonStyle": "primary",
+                              "buttonType": "submit",
+                              "icon": "close",
+                              "text": "Delete Player Transfer",
+                              "type": "button"
+                            },
+                            {
+                              "buttonStyle": "light",
+                              "events": {
+                                "click": [
+                                  {
+                                    "type": "close-popup"
+                                  }
+                                ]
+                              },
+                              "text": "Cancel",
+                              "type": "button"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "type": "row"
+                    }
+                  ],
+                  "data": "${playertransfer}",
+                  "events": {
+                    "submit": [
+                      {
+                        "code": "await MuyikDeleteTransfer();",
+                        "type": "execute"
+                      }
+                    ]
+                  },
+                  "itemType": "SoccerLeagueTransferApp.Models.ConData.PlayerTransfer",
+                  "name": "form0",
+                  "type": "template-form",
+                  "visible": "${playertransfer != null}"
+                }
+              ],
+              "type": "col"
+            }
+          ],
+          "type": "row"
+        }
+      ],
+      "container": "main",
+      "type": "content"
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "error": [],
+        "name": "conData.getPlayerTransferByTransferID",
+        "parameters": [
+          {
+            "name": "TransferID",
+            "value": "${parameters.TransferID}"
+          }
+        ],
+        "then": [
+          {
+            "name": "playertransfer",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "SoccerLeagueTransferApp.Models.ConData.PlayerTransfer"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "code": "await CheckUserStatus();",
+        "type": "execute"
+      }
+    ]
+  },
+  "layout": "Main",
+  "name": "ConfirmDeletePlayerTransfer"
+}

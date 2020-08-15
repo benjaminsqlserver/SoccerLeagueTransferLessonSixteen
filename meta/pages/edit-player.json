@@ -1,0 +1,591 @@
+{
+  "access": [],
+  "components": [
+    {
+      "components": [
+        {
+          "components": [
+            {
+              "class": "col-md-12",
+              "components": [
+                {
+                  "components": [
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "FirstName",
+                              "name": "FirstNameLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "First Name",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "maxLength": 50,
+                              "name": "FirstName",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "type": "textbox",
+                              "value": "${player.FirstName}",
+                              "valueType": "string"
+                            },
+                            {
+                              "component": "FirstName",
+                              "name": "FirstNameRequiredValidator",
+                              "style": {
+                                "position": "absolute"
+                              },
+                              "text": "First Name is required",
+                              "type": "required-validator"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "MiddleName",
+                              "name": "MiddleNameLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Middle Name",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "maxLength": 50,
+                              "name": "MiddleName",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "type": "textbox",
+                              "value": "${player.MiddleName}",
+                              "valueType": "string"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "Surname",
+                              "name": "SurnameLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Surname",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "maxLength": 50,
+                              "name": "Surname",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "type": "textbox",
+                              "value": "${player.Surname}",
+                              "valueType": "string"
+                            },
+                            {
+                              "component": "Surname",
+                              "name": "SurnameRequiredValidator",
+                              "style": {
+                                "position": "absolute"
+                              },
+                              "text": "Surname is required",
+                              "type": "required-validator"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "GenderID",
+                              "name": "GenderIDLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Gender",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getGendersResult}",
+                              "name": "GenderID",
+                              "placeholder": "Choose Gender",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "textProperty": "GenderName",
+                              "type": "dropdown",
+                              "value": "${player.GenderID}",
+                              "valueProperty": "GenderID",
+                              "valueType": "int"
+                            },
+                            {
+                              "component": "GenderID",
+                              "defaultValue": "0",
+                              "name": "GenderIDRequiredValidator",
+                              "style": {
+                                "position": "absolute"
+                              },
+                              "text": "Gender is required",
+                              "type": "required-validator"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "CurrentClubID",
+                              "name": "CurrentClubIDLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Club ",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getClubDetailsResult}",
+                              "name": "CurrentClubID",
+                              "placeholder": "Choose Club",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "textProperty": "TeamName",
+                              "type": "dropdown",
+                              "value": "${player.CurrentClubID}",
+                              "valueProperty": "TeamID",
+                              "valueType": "int?"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "PlayerPhoto",
+                              "name": "PlayerPhotoLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Player Photo",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "chooseText": "Upload Player Photo",
+                              "name": "PlayerPhoto",
+                              "type": "file-input",
+                              "value": "${player.PlayerPhoto}"
+                            },
+                            {
+                              "component": "PlayerPhoto",
+                              "name": "requiredValidator0",
+                              "text": "Player Photo Is Required!",
+                              "type": "required-validator"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "ContactEmail",
+                              "name": "ContactEmailLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Contact Email",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "maxLength": 50,
+                              "name": "ContactEmail",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "type": "textbox",
+                              "value": "${player.ContactEmail}",
+                              "valueType": "string"
+                            },
+                            {
+                              "component": "ContactEmail",
+                              "name": "ContactEmailRequiredValidator",
+                              "style": {
+                                "position": "absolute"
+                              },
+                              "text": "Contact Email is required",
+                              "type": "required-validator"
+                            },
+                            {
+                              "component": "ContactEmail",
+                              "name": "emailValidator0",
+                              "text": "Please Enter Valid Email",
+                              "type": "email-validator"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "ContactPhone",
+                              "name": "ContactPhoneLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Contact Phone",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "maxLength": 50,
+                              "name": "ContactPhone",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "type": "textbox",
+                              "value": "${player.ContactPhone}",
+                              "valueType": "string"
+                            },
+                            {
+                              "component": "ContactPhone",
+                              "name": "ContactPhoneRequiredValidator",
+                              "style": {
+                                "position": "absolute"
+                              },
+                              "text": "Contact Phone is required",
+                              "type": "required-validator"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "PositionID",
+                              "name": "PositionIDLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Player Position",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getPlayerPositionsResult}",
+                              "name": "PositionID",
+                              "placeholder": "Choose Player",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "textProperty": "PositionName",
+                              "type": "dropdown",
+                              "value": "${player.PositionID}",
+                              "valueProperty": "PositionID",
+                              "valueType": "int"
+                            },
+                            {
+                              "component": "PositionID",
+                              "defaultValue": "0",
+                              "name": "PositionIDRequiredValidator",
+                              "style": {
+                                "position": "absolute"
+                              },
+                              "text": "Position is required",
+                              "type": "required-validator"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col offset-sm-3",
+                          "components": [
+                            {
+                              "buttonStyle": "primary",
+                              "buttonType": "submit",
+                              "icon": "save",
+                              "text": "Save",
+                              "type": "button"
+                            },
+                            {
+                              "buttonStyle": "light",
+                              "events": {
+                                "click": [
+                                  {
+                                    "type": "close-popup"
+                                  }
+                                ]
+                              },
+                              "text": "Cancel",
+                              "type": "button"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "type": "row"
+                    }
+                  ],
+                  "data": "${player}",
+                  "events": {
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to update Player",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "conData.updatePlayer",
+                        "parameters": [
+                          {
+                            "name": "PlayerID",
+                            "value": "${parameters.PlayerID}"
+                          },
+                          {
+                            "name": "Player",
+                            "value": "${player}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "result": "${player}",
+                            "type": "close-popup"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "itemType": "SoccerLeagueTransferApp.Models.ConData.Player",
+                  "name": "form0",
+                  "type": "template-form",
+                  "visible": "${player != null}"
+                }
+              ],
+              "type": "col"
+            }
+          ],
+          "type": "row"
+        }
+      ],
+      "container": "main",
+      "type": "content"
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "code": "await CheckUserStatus();",
+        "type": "execute"
+      },
+      {
+        "error": [],
+        "name": "conData.getPlayerByPlayerID",
+        "parameters": [
+          {
+            "name": "PlayerID",
+            "value": "${parameters.PlayerID}"
+          }
+        ],
+        "then": [
+          {
+            "name": "player",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "SoccerLeagueTransferApp.Models.ConData.Player"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "conData.getGenders",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getGendersResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<SoccerLeagueTransferApp.Models.ConData.Gender>"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "conData.getClubDetails",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getClubDetailsResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<SoccerLeagueTransferApp.Models.ConData.ClubDetail>"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "conData.getPlayerPositions",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getPlayerPositionsResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<SoccerLeagueTransferApp.Models.ConData.PlayerPosition>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "layout": "Main",
+  "name": "Edit Player"
+}

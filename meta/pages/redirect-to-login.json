@@ -1,0 +1,20 @@
+{
+  "access": [],
+  "components": [
+    {
+      "components": [],
+      "container": "main",
+      "type": "content"
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "path": "login",
+        "type": "navigate"
+      }
+    ]
+  },
+  "layout": "Login",
+  "name": "RedirectToLogin"
+}

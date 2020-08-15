@@ -1,0 +1,131 @@
+﻿@page "/add-player-transfer"
+@layout MainLayout
+@inherits SoccerLeagueTransferApp.Pages.AddPlayerTransferComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using SoccerLeagueTransferApp.Models.ConData
+<RadzenContent Container="main">
+  <ChildContent>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenTemplateForm Data="@playertransfer" TItem="SoccerLeagueTransferApp.Models.ConData.PlayerTransfer" Visible="@(playertransfer != null)" Submit="@Form0Submit">
+          <ChildContent>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="PlayerID" style="width: 100%" Text="Player">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDown Data="@getPlayersResult" Placeholder="Choose Player" style="display: block; width: 100%" TextProperty="FullName" @bind-Value="@(playertransfer.PlayerID)" ValueProperty="PlayerID" Name="PlayerID">
+                </RadzenDropDown>
+                <RadzenRequiredValidator Component="PlayerID" DefaultValue="0" style="position: absolute" Text="Player is required">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="OriginatingClubID" style="width: 100%" Text="Originating Club">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDown Data="@originatingClubList" Placeholder="Choose Club" style="width: 100%" TextProperty="TeamName" @bind-Value="@(playertransfer.OriginatingClubID)" ValueProperty="TeamID" Name="OriginatingClubID">
+                </RadzenDropDown>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="DestinationClubID" style="width: 100%" Text="Destination Club">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDown Data="@getClubDetailsResult" Placeholder="Choose Club" style="display: block; width: 100%" TextProperty="TeamName" @bind-Value="@(playertransfer.DestinationClubID)" ValueProperty="TeamID" Name="DestinationClubID">
+                </RadzenDropDown>
+                <RadzenRequiredValidator Component="DestinationClubID" DefaultValue="0" style="position: absolute" Text="Destination Club is required">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="TransferDate" style="width: 100%" Text="Transfer Date">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDatePicker DateFormat="dd/MM/yyyy" style="display: block; width: 100%" @bind-Value="@(playertransfer.TransferDate)" Name="TransferDate" Change="@TransferDateChange">
+                </RadzenDatePicker>
+                <RadzenRequiredValidator Component="TransferDate" style="position: absolute" Text="Transfer Date is required">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="TransferTypeID" style="width: 100%" Text="Transfer Type">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDown Data="@getTransferTypesResult" Placeholder="Choose Transfer Type" style="display: block; width: 100%" TextProperty="TransferTypeName" @bind-Value="@(playertransfer.TransferTypeID)" ValueProperty="TransferTypeID" Name="TransferTypeID">
+                </RadzenDropDown>
+                <RadzenRequiredValidator Component="TransferTypeID" DefaultValue="0" style="position: absolute" Text="Transfer Type is required">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="TransferFee" style="width: 100%" Text="Transfer Fee">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="width: 100%" @bind-Value="@(playertransfer.TransferFee)" Name="TransferFee">
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="SignOnFee" style="width: 100%" Text="Sign On Fee">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="display: block; width: 100%" @bind-Value="@(playertransfer.SignOnFee)" Name="SignOnFee">
+                </RadzenNumeric>
+                <RadzenRequiredValidator Component="SignOnFee" style="position: absolute" Text="Sign On Fee is required">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="TransferAgent" style="width: 100%" Text="Transfer Agent">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="200" style="display: block; width: 100%" @bind-Value="@(playertransfer.TransferAgent)" Name="TransferAgent">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="TransferAgent" style="position: absolute" Text="Transfer Agent is required">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="AgentFee" style="width: 100%" Text="Agent Fee">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="display: block; width: 100%" @bind-Value="@(playertransfer.AgentFee)" Name="AgentFee">
+                </RadzenNumeric>
+                <RadzenRequiredValidator Component="AgentFee" style="position: absolute" Text="Agent Fee is required">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col offset-sm-3">
+                <RadzenButton ButtonStyle="ButtonStyle.Primary" ButtonType="ButtonType.Submit" Icon="save" Text="Save">
+                </RadzenButton>
+                <RadzenButton ButtonStyle="ButtonStyle.Light" Text="Cancel" Click="@Button2Click">
+                </RadzenButton>
+              </div>
+            </div>
+          </ChildContent>
+        </RadzenTemplateForm>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

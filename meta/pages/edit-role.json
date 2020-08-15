@@ -1,0 +1,171 @@
+{
+  "access": [],
+  "components": [
+    {
+      "components": [
+        {
+          "components": [
+            {
+              "class": "col-md-12",
+              "components": [
+                {
+                  "components": [
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "RoleName",
+                              "name": "RoleNameLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Role Name",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "maxLength": 50,
+                              "name": "RoleName",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "type": "textbox",
+                              "value": "${role.RoleName}",
+                              "valueType": "string"
+                            },
+                            {
+                              "component": "RoleName",
+                              "name": "RoleNameRequiredValidator",
+                              "style": {
+                                "position": "absolute"
+                              },
+                              "text": "Role Name is required",
+                              "type": "required-validator"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col offset-sm-3",
+                          "components": [
+                            {
+                              "buttonStyle": "primary",
+                              "buttonType": "submit",
+                              "icon": "save",
+                              "text": "Save",
+                              "type": "button"
+                            },
+                            {
+                              "buttonStyle": "light",
+                              "events": {
+                                "click": [
+                                  {
+                                    "type": "close-popup"
+                                  }
+                                ]
+                              },
+                              "text": "Cancel",
+                              "type": "button"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "type": "row"
+                    }
+                  ],
+                  "data": "${role}",
+                  "events": {
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to update Role",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "conData.updateRole",
+                        "parameters": [
+                          {
+                            "name": "RoleID",
+                            "value": "${parameters.RoleID}"
+                          },
+                          {
+                            "name": "Role",
+                            "value": "${role}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "result": "${role}",
+                            "type": "close-popup"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "itemType": "SoccerLeagueTransferApp.Models.ConData.Role",
+                  "name": "form0",
+                  "type": "template-form",
+                  "visible": "${role != null}"
+                }
+              ],
+              "type": "col"
+            }
+          ],
+          "type": "row"
+        }
+      ],
+      "container": "main",
+      "type": "content"
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "code": "await CheckUserStatus();",
+        "type": "execute"
+      },
+      {
+        "error": [],
+        "name": "conData.getRoleByRoleID",
+        "parameters": [
+          {
+            "name": "RoleID",
+            "value": "${parameters.RoleID}"
+          }
+        ],
+        "then": [
+          {
+            "name": "role",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "SoccerLeagueTransferApp.Models.ConData.Role"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "layout": "Main",
+  "name": "Edit Role"
+}

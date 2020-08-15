@@ -1,0 +1,432 @@
+{
+  "access": [],
+  "components": [
+    {
+      "components": [
+        {
+          "components": [
+            {
+              "class": "col-md-12",
+              "components": [
+                {
+                  "components": [
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "Username",
+                              "name": "UsernameLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Username",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "maxLength": 50,
+                              "name": "Username",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "type": "textbox",
+                              "value": "${user.Username}",
+                              "valueType": "string"
+                            },
+                            {
+                              "component": "Username",
+                              "name": "UsernameRequiredValidator",
+                              "style": {
+                                "position": "absolute"
+                              },
+                              "text": "Username is required",
+                              "type": "required-validator"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "Password",
+                              "name": "PasswordLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Password",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "autoComplete": false,
+                              "name": "Password",
+                              "placeholder": "Enter Your Password",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "type": "password",
+                              "value": "${user.Password}"
+                            },
+                            {
+                              "component": "Password",
+                              "name": "requiredValidator1",
+                              "text": "Password Is Required",
+                              "type": "required-validator"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "ConfirmPassword",
+                              "name": "label2",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Confirm Password",
+                              "type": "label"
+                            }
+                          ],
+                          "name": "col2",
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "autoComplete": false,
+                              "name": "ConfirmPassword",
+                              "placeholder": "Re-Enter Password",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "type": "password",
+                              "value": "${confirmPassword}"
+                            },
+                            {
+                              "component": "ConfirmPassword",
+                              "name": "requiredValidator2",
+                              "text": "Confirm Password Is Required",
+                              "type": "required-validator"
+                            },
+                            {
+                              "component": "ConfirmPassword",
+                              "name": "compareValidator1",
+                              "text": "The Passwords You Entered Do Not Match",
+                              "type": "compare-validator",
+                              "value": "${user.Password}"
+                            }
+                          ],
+                          "name": "col3",
+                          "type": "col"
+                        }
+                      ],
+                      "name": "row1",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "TeamID",
+                              "name": "TeamIDLabel",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Club Detail",
+                              "type": "label"
+                            }
+                          ],
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getClubDetailsResult}",
+                              "name": "TeamID",
+                              "placeholder": "Choose Club Detail",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "textProperty": "TeamName",
+                              "type": "dropdown",
+                              "value": "${user.TeamID}",
+                              "valueProperty": "TeamID",
+                              "valueType": "int?"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "EmailAddress",
+                              "name": "label3",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "Email Address",
+                              "type": "label"
+                            }
+                          ],
+                          "name": "col4",
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "name": "EmailAddress",
+                              "placeholder": "Enter Your Email Address",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "type": "textbox",
+                              "value": "${user.EmailAddress}"
+                            },
+                            {
+                              "component": "EmailAddress",
+                              "name": "requiredValidator0",
+                              "text": "Email Address Is Required",
+                              "type": "required-validator"
+                            },
+                            {
+                              "component": "EmailAddress",
+                              "name": "emailValidator0",
+                              "text": "Please Enter Valid Email Address",
+                              "type": "email-validator"
+                            }
+                          ],
+                          "name": "col7",
+                          "type": "col"
+                        }
+                      ],
+                      "name": "row2",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "component": "TeamID",
+                              "name": "label1",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "text": "User Role(s)",
+                              "type": "label"
+                            }
+                          ],
+                          "name": "col0",
+                          "type": "col"
+                        },
+                        {
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getRolesResult}",
+                              "multiple": true,
+                              "name": "UserRoles",
+                              "placeholder": "Please Assign Role To User",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "textProperty": "RoleName",
+                              "type": "dropdown",
+                              "value": "${userRoleNames}",
+                              "valueProperty": "RoleName"
+                            }
+                          ],
+                          "name": "col1",
+                          "type": "col"
+                        }
+                      ],
+                      "name": "row0",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
+                    },
+                    {
+                      "components": [
+                        {
+                          "class": "col offset-sm-3",
+                          "components": [
+                            {
+                              "buttonStyle": "primary",
+                              "buttonType": "submit",
+                              "events": {
+                                "click": []
+                              },
+                              "icon": "save",
+                              "text": "Save",
+                              "type": "button"
+                            },
+                            {
+                              "buttonStyle": "light",
+                              "events": {
+                                "click": [
+                                  {
+                                    "type": "close-popup"
+                                  }
+                                ]
+                              },
+                              "text": "Cancel",
+                              "type": "button"
+                            }
+                          ],
+                          "type": "col"
+                        }
+                      ],
+                      "type": "row"
+                    }
+                  ],
+                  "data": "${user}",
+                  "events": {
+                    "submit": [
+                      {
+                        "code": "await MuyikEditUser();",
+                        "type": "execute"
+                      }
+                    ]
+                  },
+                  "itemType": "SoccerLeagueTransferApp.Models.ConData.User",
+                  "name": "form0",
+                  "type": "template-form",
+                  "visible": "${user != null}"
+                }
+              ],
+              "type": "col"
+            }
+          ],
+          "type": "row"
+        }
+      ],
+      "container": "main",
+      "type": "content"
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "code": "await CheckUserStatus();",
+        "type": "execute"
+      },
+      {
+        "error": [],
+        "name": "conData.getUserByUserID",
+        "parameters": [
+          {
+            "name": "UserID",
+            "value": "${parameters.UserID}"
+          }
+        ],
+        "then": [
+          {
+            "name": "user",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "SoccerLeagueTransferApp.Models.ConData.User"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "conData.getClubDetails",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getClubDetailsResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<SoccerLeagueTransferApp.Models.ConData.ClubDetail>"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "conData.getRoles",
+        "then": [
+          {
+            "global": false,
+            "name": "getRolesResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<SoccerLeagueTransferApp.Models.ConData.Role>"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "confirmPassword",
+        "type": "set",
+        "value": "\"\"",
+        "valueType": "string"
+      },
+      {
+        "name": "userRoleNames",
+        "type": "set",
+        "value": "new List<string>(){}",
+        "valueType": "IEnumerable<string>"
+      },
+      {
+        "code": "await MuyikGetCurrentUserRoles();",
+        "type": "execute"
+      }
+    ]
+  },
+  "layout": "Main",
+  "name": "Edit Users"
+}

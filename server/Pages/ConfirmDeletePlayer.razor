@@ -1,0 +1,79 @@
+﻿@page "/confirm-delete-player/{PlayerID}"
+@layout MainLayout
+@inherits SoccerLeagueTransferApp.Pages.ConfirmDeletePlayerComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using SoccerLeagueTransferApp.Models.ConData
+<RadzenContent Container="main">
+  <ChildContent>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenTemplateForm Data="@player" TItem="SoccerLeagueTransferApp.Models.ConData.Player" Visible="@(player != null)" Submit="@Form0Submit">
+          <ChildContent>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenHeading Size="H1" Text="Player">
+                </RadzenHeading>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenHeading Size="H3" style="width: 384px" Text="Are You sure You Want To Delete This Player?">
+                </RadzenHeading>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="FirstName" style="width: 100%" Text="First Name">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenLabel Text="@($"{(player.FirstName)}")">
+                </RadzenLabel>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="Surname" style="width: 100%" Text="Surname">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenLabel Text="@($"{(player.Surname)}")">
+                </RadzenLabel>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="CurrentClubID" style="width: 100%" Text="Club ">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenLabel Text="@($"{(player.ClubDetail?.TeamName)}")">
+                </RadzenLabel>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="PlayerPhoto" style="width: 100%" Text="Player Photo">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenImage Path="@(player.PlayerPhoto)" style="width: 122px">
+                </RadzenImage>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col offset-sm-3">
+                <RadzenButton ButtonStyle="ButtonStyle.Primary" ButtonType="ButtonType.Submit" Icon="close" Text="Delete Player">
+                </RadzenButton>
+                <RadzenButton ButtonStyle="ButtonStyle.Light" Text="Cancel" Click="@Button2Click">
+                </RadzenButton>
+              </div>
+            </div>
+          </ChildContent>
+        </RadzenTemplateForm>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

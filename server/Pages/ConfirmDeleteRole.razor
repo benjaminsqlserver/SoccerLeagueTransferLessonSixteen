@@ -1,0 +1,49 @@
+﻿@page "/confirm-delete-role/{RoleID}"
+@layout MainLayout
+@inherits SoccerLeagueTransferApp.Pages.ConfirmDeleteRoleComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using SoccerLeagueTransferApp.Models.ConData
+<RadzenContent Container="main">
+  <ChildContent>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenTemplateForm Data="@role" TItem="SoccerLeagueTransferApp.Models.ConData.Role" Visible="@(role != null)" Submit="@Form0Submit">
+          <ChildContent>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenHeading Size="H1" Text="Role">
+                </RadzenHeading>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenHeading Size="H3" style="width: 337px" Text="Confirm If You Want To Delete This Role">
+                </RadzenHeading>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="RoleName" style="width: 100%" Text="Role Name">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenLabel Text="@($"{(role.RoleName)}")">
+                </RadzenLabel>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col offset-sm-3">
+                <RadzenButton ButtonStyle="ButtonStyle.Primary" ButtonType="ButtonType.Submit" Icon="close" Text="Delete Role">
+                </RadzenButton>
+                <RadzenButton ButtonStyle="ButtonStyle.Light" Text="Cancel" Click="@Button2Click">
+                </RadzenButton>
+              </div>
+            </div>
+          </ChildContent>
+        </RadzenTemplateForm>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

@@ -1,0 +1,69 @@
+﻿@page "/confirm-delete-user/{UserID}"
+@layout MainLayout
+@inherits SoccerLeagueTransferApp.Pages.ConfirmDeleteUserComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using SoccerLeagueTransferApp.Models.ConData
+<RadzenContent Container="main">
+  <ChildContent>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenTemplateForm Data="@user" TItem="SoccerLeagueTransferApp.Models.ConData.User" Visible="@(user != null)" Submit="@Form0Submit">
+          <ChildContent>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenHeading Size="H1" Text="User">
+                </RadzenHeading>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenHeading Size="H3" style="width: 348px" Text="Please Confirm If You Want To Delete User">
+                </RadzenHeading>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="Username" style="width: 100%" Text="Username">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenLabel Text="@($"{(user.Username)}")">
+                </RadzenLabel>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="TeamID" style="width: 100%" Text="Club ">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenLabel Text="@($"{(user.ClubDetail.TeamName)}")">
+                </RadzenLabel>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Component="TeamID" style="width: 100%" Text="User Role(s)">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenLabel Text="@($"{userRoleList}")">
+                </RadzenLabel>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col offset-sm-3">
+                <RadzenButton ButtonStyle="ButtonStyle.Primary" ButtonType="ButtonType.Submit" Icon="close" Text="Delete">
+                </RadzenButton>
+                <RadzenButton ButtonStyle="ButtonStyle.Light" Text="Cancel" Click="@Button2Click">
+                </RadzenButton>
+              </div>
+            </div>
+          </ChildContent>
+        </RadzenTemplateForm>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>
